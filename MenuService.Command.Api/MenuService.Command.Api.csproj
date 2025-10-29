@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="9.0.10">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\MenuService.Command.Application\MenuService.Command.Application.csproj" />
+    <ProjectReference Include="..\MenuService.Command.Domain\MenuService.Command.Domain.csproj" />
+    <ProjectReference Include="..\MenuService.Command.Persistence\MenuService.Command.Persistence.csproj" />
+  </ItemGroup>
+
+</Project>

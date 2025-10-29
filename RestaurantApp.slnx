@@ -1,0 +1,14 @@
+<Solution>
+  <Folder Name="/MenuService.Command/">
+    <Project Path="MenuService.Command.Api/MenuService.Command.Api.csproj" />
+    <Project Path="MenuService.Command.Application/MenuService.Command.Application.csproj" />
+    <Project Path="MenuService.Command.Domain/MenuService.Command.Domain.csproj" />
+    <Project Path="MenuService.Command.Persistence/MenuService.Command.Persistence.csproj" />
+  </Folder>
+  <Folder Name="/MenuService.Query/">
+    <Project Path="MenuService.Query.Api/MenuService.Query.Api.csproj" />
+    <Project Path="MenuService.Query.Application/MenuService.Query.Application.csproj" />
+    <Project Path="MenuService.Query.Domain/MenuService.Query.Domain.csproj" />
+    <Project Path="MenuService.Query.Persistence/MenuService.Query.Persistence.csproj" />
+  </Folder>
+</Solution>
