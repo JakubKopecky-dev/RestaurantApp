@@ -1,15 +1,20 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net10.0</TargetFramework>
-    <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
   </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Elastic.Clients.Elasticsearch" Version="9.2.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration" Version="9.0.10" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="9.0.10" />
+  </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\MenuService.Query.Application\MenuService.Query.Application.csproj" />
     <ProjectReference Include="..\MenuService.Query.Domain\MenuService.Query.Domain.csproj" />
-    <ProjectReference Include="..\MenuService.Query.Infrastructure\MenuService.Query.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>

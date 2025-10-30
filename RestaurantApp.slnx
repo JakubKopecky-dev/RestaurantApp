@@ -9,6 +9,10 @@
     <Project Path="MenuService.Query.Api/MenuService.Query.Api.csproj" />
     <Project Path="MenuService.Query.Application/MenuService.Query.Application.csproj" />
     <Project Path="MenuService.Query.Domain/MenuService.Query.Domain.csproj" />
-    <Project Path="MenuService.Query.Persistence/MenuService.Query.Persistence.csproj" />
+    <Project Path="MenuService.Query.Infrastructure/MenuService.Query.Infrastructure.csproj" Id="62b74d75-b4b3-4137-9c6d-1fb7778e69d1" />
+    <Project Path="MenuService.Query.SyncWorker/MenuService.Query.SyncWorker.csproj" Id="3350aa21-1cfa-4ea0-b54a-a6b3c8363185" />
+  </Folder>
+  <Folder Name="/Solution Items/">
+    <File Path="docker-compose.yml" />
   </Folder>
 </Solution>

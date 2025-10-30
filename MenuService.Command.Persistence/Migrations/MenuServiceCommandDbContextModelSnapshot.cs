@@ -40,7 +40,7 @@ namespace MenuService.Command.Persistence.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Menus");
+                    b.ToTable("Menus", (string)null);
                 });
 
             modelBuilder.Entity("MenuService.Command.Domain.Entity.MenuItem", b =>
@@ -70,7 +70,7 @@ namespace MenuService.Command.Persistence.Migrations
 
                     b.HasIndex("MenuId");
 
-                    b.ToTable("MenuItems");
+                    b.ToTable("MenuItems", (string)null);
                 });
 
             modelBuilder.Entity("MenuService.Command.Domain.Entity.MenuItem", b =>

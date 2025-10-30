@@ -11,7 +11,7 @@ namespace MenuService.Command.Persistence
 {
     public static class DependecyInjection
     {
-        public static IServiceCollection AddPersistenceService(this IServiceCollection services, IConfiguration configuration)
+        public static IServiceCollection AddPersistenceServices(this IServiceCollection services, IConfiguration configuration)
         {
             var connectionString = configuration.GetConnectionString("DefaultConnection");
 

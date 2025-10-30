@@ -11,7 +11,7 @@ namespace MenuService.Command.Application
 {
     public static class DependencyInjection
     {
-        public static IServiceCollection AddApplicationService(this IServiceCollection services)
+        public static IServiceCollection AddApplicationServices(this IServiceCollection services)
         {
             services.AddScoped<ICommandExecutor, CommandExecutor>();
 
