@@ -52,6 +52,23 @@ namespace MenuService.Query.Infrastructure.Repositories
 
 
 
+        public async Task<IReadOnlyList<MenuItem>> GetMenuItemsByMenuIdAsync(Guid menuId, CancellationToken ct = default)
+        {
+            var response = await _client.SearchAsync<MenuItem>(s => s
+            .Indices(IndexName)
+            .Query(q => q
+                .Term(t => t
+                    .Field(f => f.MenuId)
+                    .Value(menuId.ToString())
+                )
+            )
+            .Size(100), ct);
+
+            return [.. response.Documents];
+        }
+
+
+
 
     }
 }

@@ -1,9 +1,6 @@
 ﻿using MenuService.Query.Application.Abstraction.Messaging;
 using MenuService.Query.Application.DTOs.MenuItems;
 using MenuService.Query.Application.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace MenuService.Query.Application.Features.MenuItem.GetMenuItemById
 {

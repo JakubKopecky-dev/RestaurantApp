@@ -7,6 +7,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="HotChocolate.AspNetCore" Version="15.1.11" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\MenuService.Query.Application\MenuService.Query.Application.csproj" />
     <ProjectReference Include="..\MenuService.Query.Domain\MenuService.Query.Domain.csproj" />
     <ProjectReference Include="..\MenuService.Query.Infrastructure\MenuService.Query.Infrastructure.csproj" />

@@ -15,7 +15,7 @@ namespace MenuService.Command.Persistence
         {
             var connectionString = configuration.GetConnectionString("DefaultConnection");
 
-            services. AddDbContext<MenuServiceCommandDbContext>(options => 
+            services.AddDbContext<MenuServiceCommandDbContext>(options => 
             options.UseSqlServer(connectionString));
 
 

@@ -1,9 +1,6 @@
 ﻿using MenuService.Query.Application.Interfaces;
 using MenuService.Query.Infrastructure.Repositories;
 using Microsoft.Extensions.DependencyInjection;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace MenuService.Query.Infrastructure
 {

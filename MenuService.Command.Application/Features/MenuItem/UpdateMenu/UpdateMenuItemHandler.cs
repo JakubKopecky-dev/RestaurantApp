@@ -1,15 +1,18 @@
-﻿using MenuService.Command.Application.Abstraction.Messaging;
+﻿using MassTransit;
+using MenuService.Command.Application.Abstraction.Messaging;
 using MenuService.Command.Application.DTOs.MenuItem;
 using MenuService.Command.Application.Interfaces.Repositories;
+using Shared.Contracts.Events.MenuItems;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace MenuService.Command.Application.Features.MenuItem.UpdateMenu
 {
-    public sealed class UpdateMenuItemHandler(IMenuItemRepository menuItemRepository) : ICommandHandler<UpdateMenuItemCommand, MenuItemDto?>
+    public sealed class UpdateMenuItemHandler(IMenuItemRepository menuItemRepository, IPublishEndpoint publishEndpoint) : ICommandHandler<UpdateMenuItemCommand, MenuItemDto?>
     {
         private readonly IMenuItemRepository _menuItemRepository = menuItemRepository;
+        private readonly IPublishEndpoint _publishEndpoint = publishEndpoint;
 
 
 
@@ -29,6 +32,16 @@ namespace MenuService.Command.Application.Features.MenuItem.UpdateMenu
             menuItem.UpdatedAt = DateTime.UtcNow;
 
             await _menuItemRepository.SaveChangesAsync(ct);
+
+            MenuItemUpdatedEvent menuItemUpdatedEvent = new()
+            {
+                Id = menuItem.Id,
+                Title = menuItem.Title,
+                UnitPrice = menuItem.UnitPrice,
+                MenuId = menuItem.MenuId,
+                UpdatedAt = menuItem.UpdatedAt
+            };
+            await _publishEndpoint.Publish(menuItemUpdatedEvent, ct);
 
             return new()
             {

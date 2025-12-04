@@ -1,0 +1,22 @@
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace UserService.Persistence
+{
+    public static class DependecyInjection
+    {
+        public static IServiceCollection AddPersisteceService(this IServiceCollection services, IConfiguration configuration)
+        {
+            var connectionString = configuration.GetConnectionString("DefaultConnection");
+
+            services.AddDbContext<UserDbContext>(options =>
+                options.UseSqlServer(connectionString));
+
+            return services;
+        }
+    }
+}

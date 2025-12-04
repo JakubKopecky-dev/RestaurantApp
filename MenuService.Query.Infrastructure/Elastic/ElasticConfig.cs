@@ -8,13 +8,12 @@ namespace MenuService.Query.Infrastructure.Elastic
 {
     public static class ElasticConfig
     {
-        public static IServiceCollection AddElistic(this IServiceCollection services, IConfiguration configuration)
+        public static IServiceCollection AddElastic(this IServiceCollection services, IConfiguration configuration)
         {
             Uri uri = new(configuration["Elastic:Uri"]!);
 
 
-            var settings = new ElasticsearchClientSettings(uri)
-                .DefaultIndex("menus"); // fallback
+            var settings = new ElasticsearchClientSettings(uri);
 
             var client = new ElasticsearchClient(settings);
 

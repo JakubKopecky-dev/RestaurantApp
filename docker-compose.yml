@@ -1,8 +1,8 @@
 services:
   # RabbitMQ broker
     rabbitmq:
-        image: rabbitmq:3-managment
-        container_name: rabbitmq
+        image: rabbitmq:3-management
+        container_name: rabbitmq-query
         ports:
           - "5672:5672"
           - "15672:15672"
@@ -12,7 +12,7 @@ services:
 
   # Elasticsearch
     elasticsearch:
-        image: docker.elastic.co/elasticsearch/elasticsearch:8.14.0
+        image: docker.elastic.co/elasticsearch/elasticsearch:9.0.0
         environment:
           - discovery.type=single-node
           - xpack.security.enabled=false
@@ -20,7 +20,7 @@ services:
           - "9200:9200"
   # Kibana 
     kibana:
-        image: docker.elastic.co/kibana/kibana:8.14.0
+        image: docker.elastic.co/kibana/kibana:9.0.0
         environment:
           - ELASTICSEARCH_HOST=http://elasticsearch:9200
         ports:

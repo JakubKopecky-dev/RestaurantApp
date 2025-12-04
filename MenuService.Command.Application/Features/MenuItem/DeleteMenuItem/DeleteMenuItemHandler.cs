@@ -1,15 +1,18 @@
-﻿using MenuService.Command.Application.Abstraction.Messaging;
+﻿using MassTransit;
+using MenuService.Command.Application.Abstraction.Messaging;
 using MenuService.Command.Application.DTOs.MenuItem;
 using MenuService.Command.Application.Interfaces.Repositories;
+using Shared.Contracts.Events.MenuItems;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace MenuService.Command.Application.Features.MenuItem.DeleteMenuItem
 {
-    public sealed class DeleteMenuItemHandler(IMenuItemRepository menuItemRepository) : ICommandHandler<DeleteMenuItemCommand, MenuItemDto?>
+    public sealed class DeleteMenuItemHandler(IMenuItemRepository menuItemRepository, IPublishEndpoint publishEndpoint) : ICommandHandler<DeleteMenuItemCommand, MenuItemDto?>
     {
         private readonly IMenuItemRepository _menuItemRepository = menuItemRepository;
+        private readonly IPublishEndpoint _publishEndpoint = publishEndpoint;
 
 
 
@@ -31,6 +34,9 @@ namespace MenuService.Command.Application.Features.MenuItem.DeleteMenuItem
 
             _menuItemRepository.Remove(menuItem);
             await _menuItemRepository.SaveChangesAsync(ct);
+
+            MenuItemDeletedEvent menuItemDeletedEvent = new() { Id = menuItem.Id };
+            await _publishEndpoint.Publish(menuItemDeletedEvent, ct);
 
             return deletedMenuItem;
         }

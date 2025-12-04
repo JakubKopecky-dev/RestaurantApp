@@ -1,0 +1,20 @@
+﻿namespace UserService.Application.DTOs.User
+{
+    public sealed record UpdateUserDto
+    {
+        public string? FirstName { get; init; }
+
+        public string? LastName { get; init; }
+
+        public string? PhoneNumber { get; init; }
+
+        public string? Street { get; init; }
+
+        public string? City { get; init; }
+
+        public string? PostalCode { get; init; }
+
+        public string? Country { get; init; }
+
+    }
+}
